@@ -1,0 +1,40 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div class="alc-list-item">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/course/view.php?id={{id}}" style="background-image:url('{{{ image }}}');" class="alc-list-image"></a>
+            
+        </div>
+        <div class="col-md-9">
+            <div class="alc-list-labels">
+                {{#labels}}<span class="{{{css}}}">{{{text}}}</span>{{/labels}}
+            </div>
+            <a href="/course/view.php?id={{id}}" class="alc-list-link">{{{ title }}}</a>
+            <span class="alc-list-description">{{{ description }}}</span>
+        </div>
+    </div>
+    {{#admin}}
+    <div class="alc-list-date">
+        <span style="display:block;white-space:nowrap">
+            <a href="/course/edit.php?id={{id}}"><i class="icon fa fa-pencil fa-fw " title="Edit" aria-label="Edit"></i></a>
+            <a href="/report/completion/index.php?course={{id}}"><i class="icon fa fa-graduation-cap fa-fw " title="Course completion report" aria-label="Course completion report"></i></a>
+        </span>
+    </div>
+    {{/admin}}
+</div>
