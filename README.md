@@ -14,8 +14,23 @@ Courses are listed with:
 * custom fields representing various labels
     * "tab" (multiselect menu), e.g. "e-elearning"
     * "topics" (multiselect menu) e.g. "communication"
-    * "listed" (checkbox) e.g. "yes"
-    * "visible" (course visiblity flag) e.g "visible"
+
+## Site admins see more
+
+A handy 'Manage courses' shortcut button is added for site admins. Shortcuts to the course EDIT screen and COMPLETION report screen are added.
+
+The labels for courses also show extra custom fields for admins
+
+  * "listed" (checkbox) e.g. "yes"
+  * "visible" (course visiblity flag) e.g "visible"
+
+# Setup
+
+Install and Enable the filter on the site homepage or wherever you want the content to appear
+
+Add the shortcode [course-catalogue] to the page.
+
+Enable or add your own CSS for styling ...
 
 # Default css
 
@@ -23,6 +38,9 @@ There is no default css specified for the plugin. You will have to supply custom
 
 
 ```css
+
+$catalogue-gap: 20px;
+
 .tab-catalogue-course {
 display:grid;
 grid-template-columns: repeat(auto-fill, minmax(512px, 1fr) );
