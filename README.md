@@ -2,7 +2,7 @@
 
 Renders a tab-based catalogue.
 
-[screenshot](pix/screenshot.png)
+![screenshot](pix/screenshot.png)
 
 Tabs names are sub-categories of the root category (curently hard coded as category id = 1)
 
