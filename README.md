@@ -2,6 +2,8 @@
 
 Renders a tab-based catalogue.
 
+[screenshot](pix/screenshot.png)
+
 Tabs names are sub-categories of the root category (curently hard coded as category id = 1)
 
 Tabs are visible only when one or more courses within that category would show.
