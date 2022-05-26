@@ -16,7 +16,7 @@ Usage:
 class filter_coursecatalogue extends moodle_text_filter {
     public function filter($text, array $options = array()) {
 
-		global $DB, $CFG, $PAGE;
+		global $DB, $CFG, $PAGE, $USER, $OUTPUT;
 
 		$find = "[course-catalogue]";
 		$root = 1; // hard coded category id
@@ -67,7 +67,7 @@ class filter_coursecatalogue extends moodle_text_filter {
 					if (!is_siteadmin() && strval($course->visible) !== "1")	{
 						continue;
 					}
-					
+				
 					$r->id = $course->id;
 					$r->title = $course->fullname;
 					$r->description = content_to_text($course->summary, FORMAT_PLAIN);
@@ -104,6 +104,14 @@ class filter_coursecatalogue extends moodle_text_filter {
 					if (is_siteadmin())	{
 						$r->admin = true;
 						$r->labels[] = ["css"=>"admin " . (strval($course->visible) === "1" ? "v" : "h"), "text"=> (strval($course->visible) === "1" ? "Visible" : "Hidden")];
+					}
+
+					// completion info
+					$info = new completion_info($course);
+					if (completion_info::is_enabled_for_site() && $info->is_enabled()) {
+						if ($info->is_course_complete($USER->id)) {
+							$r->labels[] = ["css"=>"complete", "text"=>'<i class="fa fa-check-circle-o" aria-hidden="true" title="' . get_string('coursecompleted','completion') . '"></i>'];
+						}
 					}
 
 					$c->courses[] = $r;
