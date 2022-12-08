@@ -123,7 +123,7 @@ class filter_coursecatalogue extends moodle_text_filter {
 			}
 			$obj = new \filter_coursecatalogue\output\tabs($objdata);
 			$renderer = $PAGE->get_renderer('filter_coursecatalogue');
-			$text = $renderer->render($obj);
+			$text = str_replace($find, $renderer->render($obj), $text);
 		}
 
 		return $text;
